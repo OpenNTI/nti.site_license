@@ -61,7 +61,6 @@ setup(
         'nti.property',
         'nti.schema',
         'nti.wref',
-        'nti.zope_catalog',
         'setuptools',
         'six',
         'ZODB',
