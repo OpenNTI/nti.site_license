@@ -20,10 +20,10 @@ from nti.schema.fieldproperty import createDirectFieldProperties
 
 from nti.schema.schema import SchemaConfigured
 
-from nti.site.license.interfaces import ITrialSiteLicense
-from nti.site.license.interfaces import IGrowthSiteLicense
-from nti.site.license.interfaces import IStarterSiteLicense
-from nti.site.license.interfaces import IEnterpriseSiteLicense
+from nti.site_license.interfaces import ITrialSiteLicense
+from nti.site_license.interfaces import IGrowthSiteLicense
+from nti.site_license.interfaces import IStarterSiteLicense
+from nti.site_license.interfaces import IEnterpriseSiteLicense
 
 
 logger = __import__('logging').getLogger(__name__)

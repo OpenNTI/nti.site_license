@@ -23,11 +23,11 @@ from nti.externalization.internalization import update_from_external_object
 
 from nti.externalization.internalization import find_factory_for
 
-from nti.site.license.interfaces import ITrialSiteLicense
+from nti.site_license.interfaces import ITrialSiteLicense
 
-from nti.site.license.license import TrialSiteLicense
+from nti.site_license.license import TrialSiteLicense
 
-from nti.site.license.tests import SharedConfiguringTestLayer
+from nti.site_license.tests import SharedConfiguringTestLayer
 
 CLASS = StandardExternalFields.CLASS
 ITEMS = StandardExternalFields.ITEMS

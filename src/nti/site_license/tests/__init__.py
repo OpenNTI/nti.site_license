@@ -20,7 +20,7 @@ class SharedConfiguringTestLayer(ZopeComponentLayer,
                                  GCLayerMixin,
                                  ConfiguringLayerMixin):
 
-    set_up_packages = ('nti.site.license',)
+    set_up_packages = ('nti.site_license',)
 
     @classmethod
     def setUp(cls):

@@ -21,7 +21,7 @@ def _read(fname):
 
 
 setup(
-    name='nti.site.license',
+    name='nti.site_license',
     version=_read('version.txt').strip(),
     author='Josh Zuech',
     author_email='josh.zuech@nextthought.com',
@@ -45,12 +45,12 @@ setup(
         'Programming Language :: Python :: Implementation :: CPython',
         'Programming Language :: Python :: Implementation :: PyPy',
     ],
-    url="https://github.com/NextThought/nti.site.license",
+    url="https://github.com/NextThought/nti.site_license",
     zip_safe=True,
     packages=find_packages('src'),
     package_dir={'': 'src'},
     include_package_data=True,
-    namespace_packages=['nti', 'nti.site'],
+    namespace_packages=['nti'],
     tests_require=TESTS_REQUIRE,
     install_requires=[
         'BTrees',
