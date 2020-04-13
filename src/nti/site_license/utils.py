@@ -20,6 +20,8 @@ def get_site_license_feature_policy(site_license, feature_policy_iface):
     """
     # First we query for a named adapter keyed off the site license
     # version. If not, we fall back to a regular adapter.
+    if not site_license:
+        return
     result = None
     if site_license.version:
         result = component.queryAdapter(site_license,
