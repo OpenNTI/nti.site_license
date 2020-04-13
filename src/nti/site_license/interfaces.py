@@ -12,15 +12,21 @@ from zope.container.interfaces import IContained
 
 from nti.base.interfaces import ICreated
 from nti.base.interfaces import ILastModified
+from nti.base.interfaces import ITitledDescribed
 
 from nti.coremetadata.interfaces import IShouldHaveTraversablePath
 
+from nti.schema.field import TextLine
 
-class ISiteLicense(IContained, ILastModified,
+
+class ISiteLicense(IContained, ILastModified, ITitledDescribed,
                    ICreated, IShouldHaveTraversablePath):
     """
     The base interface for a site license.
     """
+
+    version = TextLine(title=u"The site license version",
+                       required=False)
 
 
 class ITrialSiteLicense(ISiteLicense):

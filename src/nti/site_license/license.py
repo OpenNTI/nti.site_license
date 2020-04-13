@@ -34,6 +34,8 @@ class AbstractSiteLicense(PersistentCreatedModDateTrackingObject,
 
     __parent__ = None
     __name__ = None
+    title = None
+    description = None
 
 
 @WithRepr
@@ -41,6 +43,7 @@ class AbstractSiteLicense(PersistentCreatedModDateTrackingObject,
 class TrialSiteLicense(AbstractSiteLicense):
     createDirectFieldProperties(ITrialSiteLicense)
 
+    title = u'Trial'
     mimeType = mime_type = "application/vnd.nextthought.site.triallicense"
 
 
@@ -49,6 +52,7 @@ class TrialSiteLicense(AbstractSiteLicense):
 class StarterSiteLicense(AbstractSiteLicense):
     createDirectFieldProperties(IStarterSiteLicense)
 
+    title = u'Starter'
     mimeType = mime_type = "application/vnd.nextthought.site.starterlicense"
 
 
@@ -57,6 +61,7 @@ class StarterSiteLicense(AbstractSiteLicense):
 class GrowthSiteLicense(AbstractSiteLicense):
     createDirectFieldProperties(IGrowthSiteLicense)
 
+    title = u'Growth'
     mimeType = mime_type = "application/vnd.nextthought.site.growthlicense"
 
 
@@ -65,4 +70,5 @@ class GrowthSiteLicense(AbstractSiteLicense):
 class EnterpriseSiteLicense(AbstractSiteLicense):
     createDirectFieldProperties(IEnterpriseSiteLicense)
 
+    title = u'Enterprise'
     mimeType = mime_type = "application/vnd.nextthought.site.enterpriselicense"

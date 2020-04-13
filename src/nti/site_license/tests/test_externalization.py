@@ -40,6 +40,7 @@ class TestCompletion(unittest.TestCase):
 
     def test_externalization(self):
         trial_license = TrialSiteLicense()
+        trial_license.version = u'v2'
 
         assert_that(trial_license, validly_provides(ITrialSiteLicense))
         assert_that(trial_license, verifiably_provides(ITrialSiteLicense))
@@ -50,8 +51,13 @@ class TestCompletion(unittest.TestCase):
                     is_('application/vnd.nextthought.site.triallicense'))
         assert_that(ext_obj['CreatedTime'], not_none())
         assert_that(ext_obj['Last Modified'], not_none)
+        assert_that(ext_obj['title'], is_(u'Trial'))
+        assert_that(ext_obj['version'], is_(u'v2'))
 
         factory = find_factory_for(ext_obj)
         assert_that(factory, not_none())
         new_io = factory()
         update_from_external_object(new_io, ext_obj, require_updater=True)
+
+        assert_that(new_io.title, is_(u'Trial'))
+        assert_that(new_io.version, is_(u'v2'))
