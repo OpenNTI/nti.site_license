@@ -10,18 +10,23 @@ from __future__ import absolute_import
 
 from zope import component
 
+from nti.site_license.interfaces import ISiteLicense
+
 logger = __import__('logging').getLogger(__name__)
 
 
-def get_site_license_feature_policy(site_license, feature_policy_iface):
+def get_site_license_feature_policy(feature_policy_iface, site_license=None):
     """
-    Given a :class:`ISiteLicense`, fetch the corresponding feature
-    policy adapter given by `feature_policy_iface`.
+    Fetch the corresponding feature policy adapter given by
+    `feature_policy_iface`, using the current :class:`ISiteLicense`
+    in play. If none, is found, this function returns `None`.
     """
-    # First we query for a named adapter keyed off the site license
-    # version. If not, we fall back to a regular adapter.
+    if not site_license:
+        site_license = component.queryUtility(ISiteLicense)
     if not site_license:
         return
+    # First we query for a named adapter keyed off the site license
+    # version. If not, we fall back to a regular adapter.
     result = None
     if site_license.version:
         result = component.queryAdapter(site_license,
